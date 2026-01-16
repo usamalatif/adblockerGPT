@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>adblockerGPT Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="options-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <img src="../icons/icon-48.png" alt="adblockerGPT" class="header-icon">
+        <div class="header-text">
+          <h1>adblockerGPT Settings</h1>
+          <p>Configure your ad-blocking preferences</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- General Settings -->
+      <section class="settings-section">
+        <h2 class="section-title">General</h2>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label class="setting-label">Enable Ad Blocking</label>
+            <p class="setting-description">Block ads on ChatGPT</p>
+          </div>
+          <div class="toggle-switch">
+            <input type="checkbox" id="enableToggle" checked>
+            <span class="toggle-slider"></span>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <label class="setting-label">Show Badge Count</label>
+            <p class="setting-description">Display blocked ad count on extension icon</p>
+          </div>
+          <div class="toggle-switch">
+            <input type="checkbox" id="badgeToggle" checked>
+            <span class="toggle-slider"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Statistics -->
+      <section class="settings-section">
+        <h2 class="section-title">Statistics</h2>
+
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-value" id="adsBlocked">0</span>
+            <span class="stat-name">Ads Blocked</span>
+          </div>
+        </div>
+
+        <button class="btn btn-secondary" id="resetStats">Reset Statistics</button>
+      </section>
+
+      <!-- About -->
+      <section class="settings-section">
+        <h2 class="section-title">About</h2>
+
+        <div class="about-info">
+          <div class="about-row">
+            <span class="about-label">Version</span>
+            <span class="about-value" id="version">1.0.0</span>
+          </div>
+          <div class="about-row">
+            <span class="about-label">Developer</span>
+            <span class="about-value">adblockerGPT Team</span>
+          </div>
+        </div>
+
+        <div class="about-links">
+          <a href="https://adblockergpt.com" target="_blank" class="link">Website</a>
+          <a href="https://github.com/adblockergpt" target="_blank" class="link">GitHub</a>
+          <a href="https://adblockergpt.com/privacy" target="_blank" class="link">Privacy Policy</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+      <span class="toast-message">Settings saved</span>
+    </div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

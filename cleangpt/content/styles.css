@@ -1,0 +1,34 @@
+/**
+ * adblockerGPT - Content Styles
+ * CSS rules for hiding ads and styling injected elements
+ */
+
+/* Hide elements marked by adblockerGPT */
+.adblockergpt-hidden {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+/* Preemptive hiding for common ad patterns */
+/* These will be refined once actual ad markup is known */
+[data-ad],
+[data-ad-slot],
+[data-sponsored],
+[data-advertisement] {
+  display: none !important;
+}
+
+/* Smooth transitions when elements are removed */
+.adblockergpt-removing {
+  transition: opacity 0.2s ease-out, height 0.2s ease-out;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}

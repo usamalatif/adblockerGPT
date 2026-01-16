@@ -1,0 +1,94 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-17",
+  "description": "adblockerGPT ad detection rules for ChatGPT",
+
+  "rules": {
+    "classPatterns": [
+      ".*\\bad[-_]?container.*",
+      ".*\\bad[-_]?wrapper.*",
+      ".*\\bad[-_]?slot.*",
+      ".*\\bad[-_]?banner.*",
+      ".*\\bsponsored[-_]?content.*",
+      ".*\\bpaid[-_]?promotion.*",
+      ".*\\bnative[-_]?ad.*"
+    ],
+
+    "dataAttributes": [
+      "data-ad",
+      "data-ad-slot",
+      "data-ad-client",
+      "data-ad-format",
+      "data-sponsored",
+      "data-promotion",
+      "data-advertisement",
+      "data-native-ad"
+    ],
+
+    "textIndicators": [
+      "sponsored",
+      "advertisement",
+      "promoted",
+      "paid partnership",
+      "sponsored content",
+      "partner content",
+      "presented by",
+      "brought to you by"
+    ],
+
+    "structuralSelectors": [
+      "[class*=\"ad-\"]:not([class*=\"load\"]):not([class*=\"add\"])",
+      "[class*=\"-ad\"]:not([class*=\"load\"]):not([class*=\"head\"])",
+      "[data-testid*=\"ad\"]",
+      "[data-testid*=\"sponsor\"]",
+      "[aria-label*=\"advertisement\"]",
+      "[aria-label*=\"sponsored\"]",
+      "iframe[src*=\"doubleclick\"]",
+      "iframe[src*=\"googlesyndication\"]"
+    ],
+
+    "chatgptSelectors": [
+      "[data-testid*=\"chatgpt-ad\"]",
+      "[data-testid*=\"response-ad\"]",
+      "[class*=\"chatgpt-ad\"]",
+      "[class*=\"response-ad\"]",
+      "[class*=\"conversation-ad\"]",
+      "[class*=\"message-ad\"]",
+      ".message-content > [class*=\"sponsor\"]",
+      ".message-content > [class*=\"promo\"]",
+      "[data-message-author-role=\"assistant\"] [class*=\"ad-\"]",
+      "[data-message-author-role=\"assistant\"] [class*=\"sponsor\"]"
+    ],
+
+    "exclusions": [
+      ".*\\badd\\b.*",
+      ".*\\bload.*",
+      ".*\\bhead.*",
+      ".*\\bread.*",
+      ".*\\bgrad.*",
+      ".*\\bpad.*",
+      ".*\\bdownload.*",
+      ".*\\bupload.*"
+    ]
+  },
+
+  "placeholders": {
+    "enabled": false,
+    "message": "Ad removed by adblockerGPT",
+    "style": {
+      "background": "#f3f4f6",
+      "padding": "8px",
+      "borderRadius": "4px",
+      "fontSize": "12px",
+      "color": "#6b7280"
+    }
+  },
+
+  "settings": {
+    "debounceMs": 50,
+    "maxRetries": 3,
+    "logLevel": "warn",
+    "enableVisualHeuristics": true,
+    "enablePositionDetection": true
+  }
+}

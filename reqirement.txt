@@ -1,0 +1,550 @@
+Extension skeleton - Manifest V3 boilerplate, folder structure, dev environment
+Detection engine - Multi-strategy ad detection system
+Monitoring system - Puppeteer script to watch for ad launch
+Landing page - Next.js + Tailwind site on Vercel
+
+## ChatGPT Ad Blocker Extension - Revised Development Plan
+
+**Project Code Name**: CleanGPT  
+**Timeline**: 3 weeks (Jan 18 - Feb 7, 2026)  
+**Team**: 1 senior developer + you (part-time oversight)  
+**Budget**: $500-1000 (mostly design/marketing assets)
+
+---
+
+## Phase 1: Foundation & Monitoring System (Jan 18-24)
+**Goal**: Build core extension infrastructure and set up real-time monitoring for when ads launch
+
+### Week 1 Deliverables
+
+**Day 1-2: Extension Skeleton**
+- Create Chrome Extension manifest V3 boilerplate
+- Set up development environment with hot reload
+- Implement basic content script injection that activates only on chat.openai.com
+- Create settings page UI (simple, clean design)
+- Set up GitHub repository (keep private initially)
+
+**Day 3-4: Flexible Ad Detection System**
+Since we don't know exact ad markup yet, build a multi-strategy detection engine:
+
+```javascript
+// Strategy 1: Common ad indicators
+const adIndicators = [
+  'sponsored', 'advertisement', 'ad-container',
+  'promoted', 'ad-label', 'ad-wrapper'
+];
+
+// Strategy 2: Position-based (OpenAI said "bottom of responses")
+// Target elements at bottom of chat message containers
+
+// Strategy 3: Class/ID pattern matching
+// Prepare regex patterns for common ad naming conventions
+
+// Strategy 4: Visual heuristics
+// Detect elements with specific styling (borders, background colors, spacing)
+```
+
+Build modular detection system where you can easily add new detection rules via JSON config:
+
+```json
+{
+  "version": "1.0",
+  "rules": [
+    {
+      "type": "class",
+      "pattern": ".*ad.*|.*sponsored.*",
+      "action": "hide"
+    },
+    {
+      "type": "position",
+      "selector": ".message-container:last-child > div[data-ad]",
+      "action": "remove"
+    }
+  ]
+}
+```
+
+**Day 5-6: Monitoring & Alert System**
+Create automated detection system that alerts you the moment ads appear:
+
+- Set up puppeteer script that checks ChatGPT Free tier every 2 hours
+- Take screenshots of chat interface
+- Compare DOM structure against baseline
+- Send Telegram/Discord notification when new elements appear matching ad patterns
+- Log all DOM changes to identify when ads launch
+
+**Day 7: Testing Infrastructure**
+- Create mock ad elements based on OpenAI's description (bottom placement, labeled)
+- Build test page that simulates ChatGPT with fake ads
+- Verify all detection strategies work on test page
+- Set up automated testing pipeline
+
+### Phase 1 Deliverables Checklist
+- ✅ Working Chrome extension that injects on ChatGPT
+- ✅ Flexible multi-strategy ad detection engine
+- ✅ Settings page with on/off toggles
+- ✅ Automated monitoring system watching for ad launch
+- ✅ Test environment with mock ads
+- ✅ GitHub repo with clean commit history
+
+---
+
+## Phase 2: Rapid Response & Launch (Jan 25-31)
+**Goal**: Deploy within 24 hours of ads appearing, capture first-mover advantage
+
+### Pre-Launch Preparation (Jan 25-27)
+
+**Store Assets Ready to Go**
+Create all Chrome Web Store materials in advance:
+
+- Extension name: "CleanGPT - Ad-Free ChatGPT" (test name variations for SEO)
+- Icon: Clean, minimalist design (512x512 primary + all required sizes)
+- Screenshots: 5 promotional images showing before/after
+- Description (580 chars): Emphasize privacy, focus, and savings
+- Detailed description: Cover features, privacy policy, comparison table
+- Privacy policy hosted on simple landing page
+- Developer account verified and ready
+
+**Landing Page Pre-Built**
+Deploy landing page before extension launches:
+
+- Domain: cleangpt.com or chatgpt-adfree.com (register now)
+- Hero section: "ChatGPT Without Ads - Completely Free"
+- Feature comparison table (Free vs Free+CleanGPT vs Plus)
+- Installation instructions for Chrome/Firefox
+- FAQ section addressing legality, safety, data privacy
+- Email capture for launch notifications
+- Analytics tracking (Google Analytics + PostHog)
+
+Tech stack: Next.js + Tailwind, deploy on Vercel (free tier)
+
+**Marketing Materials Prepared**
+Write in advance, ready to post:
+
+- Reddit posts for r/ChatGPT, r/OpenAI, r/chrome
+- Hacker News submission (title + first comment)
+- Product Hunt launch materials
+- Twitter/X thread (8-10 tweets)
+- YouTube script for demo video (60 seconds)
+
+### The Moment Ads Launch (Hour 0)
+
+**Immediate Response Protocol**
+
+When your monitoring system detects ads (you'll get Telegram alert):
+
+1. **Hour 0-2**: Analyze actual ad markup
+   - Inspect DOM structure of real ads
+   - Identify CSS classes, IDs, data attributes
+   - Document exact placement and styling
+   - Test different ad scenarios (if multiple formats)
+
+2. **Hour 2-6**: Update detection logic
+   - Add actual ad selectors to detection engine
+   - Test thoroughly on real ChatGPT with ads
+   - Verify ads are removed cleanly without breaking layout
+   - Check performance impact (should be <5ms)
+   - Build in fallback detection if OpenAI changes markup
+
+3. **Hour 6-12**: Emergency testing
+   - Test on multiple Chrome versions
+   - Verify on different ChatGPT conversation types
+   - Check for edge cases (long conversations, image responses)
+   - Ensure no false positives (removing non-ad content)
+   - Test with ChatGPT Go tier if you have access
+
+4. **Hour 12-18**: Firefox port
+   - Convert manifest to Firefox format
+   - Test on Firefox browser
+   - Verify all features work identically
+
+5. **Hour 18-24**: Submit to stores
+   - Package Chrome extension, submit to Web Store
+   - Package Firefox extension, submit to AMO
+   - Submit for expedited review if possible
+   - Update landing page to "Submitted - Available Soon"
+
+### Launch Marketing (Jan 28-31)
+
+**The moment store approval comes** (usually 1-3 days):
+
+**Day 1 - Soft Launch**
+- Update landing page with install buttons
+- Post to Reddit r/ChatGPT (time for 9am EST when Americans are online)
+- Share in relevant Discord/Slack communities
+- Send email to your early waitlist
+- Respond to every comment/question within 30 minutes
+
+**Day 2 - Broad Distribution**
+- Launch on Product Hunt (requires preparation day before)
+- Post to Hacker News (title: "CleanGPT - Remove ads from ChatGPT")
+- Twitter/X thread with demo video
+- Post in r/OpenAI, r/chrome, r/Firefox, r/privacy
+- Reach out to tech bloggers (TechCrunch, The Verge, Ars Technica)
+
+**Day 3 - Community Engagement**
+- Create YouTube demo video (screen recording + voiceover)
+- Write Medium article: "Why I Built an Ad Blocker for ChatGPT"
+- Engage with every comment across all platforms
+- Start collecting user feedback for v1.1
+- Monitor for any issues, push hotfix if needed
+
+### Phase 2 Deliverables Checklist
+- ✅ Extension updated with real ad detection
+- ✅ Submitted to Chrome & Firefox stores
+- ✅ Landing page live with install buttons
+- ✅ Marketing content posted to 8+ platforms
+- ✅ 1000+ installs in first 48 hours (realistic target)
+
+---
+
+## Phase 3: Growth & Iteration (Feb 1-7)
+**Goal**: Build momentum, fix issues, plan premium features
+
+### Community Management
+
+**Daily Tasks**
+- Monitor extension reviews (Chrome Store, Firefox AMO)
+- Respond to support questions within 2 hours
+- Track GitHub issues if you make repo public
+- Watch for OpenAI ad format changes
+- Check competitors (others will copy you)
+
+**User Feedback Loop**
+Create feedback channels:
+- GitHub Discussions for feature requests
+- Discord server for community (optional, only if >5000 users)
+- Twitter account for updates (@CleanGPT)
+- Email support (support@cleangpt.com)
+
+### Technical Improvements
+
+**Version 1.1 (release by Feb 5)**
+Based on early feedback, prioritize:
+
+- Performance optimization (if any lag reported)
+- Edge case fixes (specific ChatGPT features breaking)
+- Enhanced detection for new ad variants
+- Option to show "Ad blocked" notification
+- Statistics: "You've blocked X ads, saving $Y/month"
+
+**Telemetry System** (privacy-respecting)
+Collect anonymous data to improve detection:
+- Which detection rules are triggering
+- Ad format variations encountered
+- Extension performance metrics
+- ChatGPT version/tier user is on
+
+No PII, no conversation content, opt-out available.
+
+### Competitive Intelligence
+
+**Monitor These Threats**
+
+By Week 2, expect competitors:
+1. Other ad blockers adding ChatGPT rules
+2. uBlock Origin filters for ChatGPT ads
+3. Copycat extensions (report trademark violations)
+
+**Your Competitive Advantages**:
+- First to market (critically important)
+- Purpose-built for ChatGPT (faster, lighter than generic blockers)
+- Active development and community
+- Potential premium features
+- Brand recognition from early launch
+
+### Monetization Planning (Don't implement yet, just plan)
+
+**Premium Feature Ideas** (for v2.0 in March)
+
+Tier 1: Free (Current ad blocking)
+- Core ad removal
+- Basic settings
+- Community support
+
+Tier 2: Premium - $2.99/month or $20/year
+- Custom ChatGPT themes (dark mode variants, custom colors)
+- Enhanced privacy (clear history automatically, disable telemetry)
+- Priority support
+- Keyboard shortcuts for ChatGPT actions
+- Export conversations in multiple formats (PDF, Markdown, JSON)
+- Conversation search and organization
+- Multi-account management
+
+**Why this works**:
+- Costs less than going from Go ($8) to Plus ($20) - still saves users $9/month
+- Adds genuine value beyond ad blocking
+- Doesn't feel exploitative
+- Appeals to power users who would pay anyway
+
+**Alternative Monetization**:
+- Keep completely free, add "Buy me a coffee" link
+- Sponsorship from privacy-focused companies (Proton, Brave)
+- weiBlocks branding (user acquisition for agency)
+
+### Growth Tactics
+
+**Week 2 Goals: 10,000 installs**
+
+- Create comparison content: "CleanGPT vs ChatGPT Plus - Save $156/year"
+- Tutorial content: "How to use ChatGPT ad-free"
+- Reach out to YouTubers who cover AI tools
+- Get featured on Chrome Web Store "Featured Extensions"
+- Submit to BetaList, ProductHunt alternatives
+- Cross-promote on your other properties (notepad-ai.online)
+
+**SEO Strategy**
+Target keywords:
+- "ChatGPT ad blocker"
+- "remove ChatGPT ads"
+- "ChatGPT without ads"
+- "block ChatGPT advertisements"
+- "free ChatGPT ad-free"
+
+Content:
+- Blog posts on landing page
+- Guest posts on tech blogs
+- Medium articles
+- YouTube video optimization
+
+### Phase 3 Deliverables Checklist
+- ✅ Version 1.1 released with improvements
+- ✅ 10,000+ total installs
+- ✅ 4+ star rating on stores
+- ✅ Active community established
+- ✅ Premium feature roadmap defined
+- ✅ Sustainable update schedule
+
+---
+
+## Technical Architecture Details
+
+### Core Files Structure
+
+```
+cleangpt/
+├── manifest.json              # Extension configuration
+├── background.js             # Background service worker
+├── content/
+│   ├── detector.js           # Ad detection engine
+│   ├── remover.js           # DOM manipulation
+│   ├── observer.js          # MutationObserver setup
+│   └── styles.css           # Injection styles
+├── popup/
+│   ├── popup.html           # Extension popup UI
+│   ├── popup.js             # Popup logic
+│   └── popup.css            # Popup styles
+├── options/
+│   ├── options.html         # Settings page
+│   ├── options.js           # Settings logic
+│   └── options.css          # Settings styles
+├── rules/
+│   └── detection-rules.json # Updatable ad patterns
+└── icons/
+    └── icon-*.png           # All icon sizes
+```
+
+### Key Technical Decisions
+
+**Why manifest V3?**
+- Required for new Chrome extensions (V2 deprecated)
+- Better performance with service workers
+- More secure permissions model
+
+**Why MutationObserver?**
+- ChatGPT loads content dynamically
+- Ads might inject after page load
+- Need to catch ads appearing in real-time
+
+**Why JSON config for rules?**
+- Easy to update without full extension update
+- Can hot-swap detection rules
+- Users can contribute community rules
+
+**Performance Targets**
+- <5ms detection time per message
+- <500KB extension size
+- <10MB memory footprint
+- No noticeable lag in ChatGPT interface
+
+### Security & Privacy
+
+**Data Collection: ZERO**
+- No conversation content captured
+- No user identification
+- No tracking across websites
+- Only works on chat.openai.com
+
+**Permissions Needed**
+- `activeTab` - Access to current tab
+- `storage` - Save user settings
+- `host_permissions: ["https://chat.openai.com/*"]` - Only ChatGPT
+
+**Privacy Policy** (required for store):
+- Clear explanation of zero data collection
+- How settings are stored (locally only)
+- No third-party integrations
+- Open source code (consider after launch)
+
+---
+
+## Marketing Assets Checklist
+
+**Visual Assets**
+- [ ] Logo (512x512 SVG + PNG exports)
+- [ ] Chrome Store screenshots (1280x800, 5 images)
+- [ ] Firefox Store screenshots (same)
+- [ ] Social media images (Twitter, Reddit-optimized)
+- [ ] Demo video thumbnail
+- [ ] Comparison infographic
+
+**Copy Assets**
+- [ ] Chrome Store description (short + long)
+- [ ] Firefox Store description
+- [ ] Landing page copy (hero, features, FAQ)
+- [ ] Privacy policy
+- [ ] Terms of service (simple)
+- [ ] Email templates (welcome, update notifications)
+
+**Video Content**
+- [ ] 60-second demo video
+- [ ] YouTube description optimized for SEO
+- [ ] Tutorial video (optional, for Week 2)
+
+---
+
+## Risk Mitigation
+
+### Scenario 1: OpenAI Actively Blocks Extension
+**Likelihood**: Medium  
+**Impact**: High  
+**Mitigation**: 
+- Keep detection subtle (don't announce what you're doing in DOM)
+- Avoid obvious patterns they can detect
+- Build in multiple fallback detection methods
+- Community can fork if needed (open source advantage)
+
+### Scenario 2: Ads Don't Launch in Timeframe
+**Likelihood**: Low (they announced "coming weeks")  
+**Impact**: Medium  
+**Mitigation**:
+- Still build and launch extension as "ready for ads"
+- Market as "Be prepared" angle
+- Use time to build community
+- Add other ChatGPT enhancement features in meantime
+
+### Scenario 3: Chrome/Firefox Reject Extension
+**Likelihood**: Low (ad blockers are allowed)  
+**Impact**: High  
+**Mitigation**:
+- Review policies carefully before submission
+- Prepare alternative distribution (GitHub, direct download)
+- Have lawyer review if needed (cheap consultation)
+- Appeal with clear arguments about user choice
+
+### Scenario 4: Competitor Beats You to Market
+**Likelihood**: High (others are thinking this too)  
+**Impact**: Medium  
+**Mitigation**:
+- Speed is everything - ship in 24 hours of ads appearing
+- Focus on quality and active development
+- Build community, not just product
+- Compete on trust and transparency
+
+### Scenario 5: Low Adoption
+**Likelihood**: Low (there's real demand)  
+**Impact**: Medium  
+**Mitigation**:
+- Marketing is as important as development
+- Engage with every early user personally
+- Iterate based on feedback quickly
+- Cross-promote across your properties
+
+---
+
+## Success Metrics
+
+### Week 1 (Launch Week)
+- 1,000+ installs
+- 4.0+ star rating
+- <5% uninstall rate
+- Featured on at least 2 tech blogs
+
+### Week 2
+- 5,000+ installs
+- Top 3 in search results for "ChatGPT ad blocker"
+- 100+ reviews across both stores
+- 50+ GitHub stars (if open source)
+
+### Week 3
+- 10,000+ installs
+- Featured on Product Hunt (top 10 of the day)
+- Mentioned in major tech publication
+- Sustainable update cadence established
+
+### Month 2-3
+- 50,000+ installs
+- Multiple revenue options tested
+- v2.0 with premium features launched
+- Partnership opportunities emerging
+
+---
+
+## Resource Requirements
+
+**Development Time**
+- Week 1: 40 hours (full-time developer)
+- Week 2: 20 hours (half-time for launch response)
+- Week 3+: 5-10 hours/week (maintenance)
+
+**Your Time**
+- Strategy & oversight: 2 hours/day
+- Marketing & community: 1-2 hours/day initially
+- Later: 30 minutes/day maintenance
+
+**Budget Breakdown**
+- Domain registration: $15/year
+- Design assets (Fiverr): $100-200
+- Video editing (optional): $50-100
+- Chrome developer account: $5 (one-time)
+- Hosting (Vercel free tier): $0
+- Contingency: $200
+- **Total: $370-520**
+
+---
+
+## Next Steps (Start Immediately)
+
+**Today (Jan 18)**
+1. Register domain (cleangpt.com or alternatives)
+2. Set up GitHub private repo
+3. Assign developer from weiBlocks team
+4. Create Chrome developer account
+5. Set up monitoring script for ChatGPT ads
+
+**This Weekend (Jan 19-20)**
+6. Build extension skeleton
+7. Implement detection engine framework
+8. Create test page with mock ads
+9. Design logo and basic branding
+
+**Next Week (Jan 21-24)**
+10. Complete monitoring system
+11. Prepare all store assets
+12. Build landing page
+13. Write marketing copy
+14. Set up all distribution channels
+
+**Be Ready**: When ads launch (likely Jan 27-31), you ship within 24 hours and capture the wave of frustrated users searching for solutions.
+
+---
+
+## Questions to Resolve Now
+
+1. **Team allocation**: Which developer from weiBlocks can dedicate Week 1 full-time?
+2. **Branding decision**: CleanGPT, AdBlockGPT, PureGPT, or other name?
+3. **Open source strategy**: Launch as open source immediately, or wait until 10k users?
+4. **weiBlocks branding**: Include subtle agency branding or keep independent?
+5. **Monetization priority**: Pure free forever, or plan premium from start?
+
+Want me to dive deeper into any specific phase or help with immediate next steps?
