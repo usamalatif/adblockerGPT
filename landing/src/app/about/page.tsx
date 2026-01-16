@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: 'About adblockerGPT - Our Mission & Values',
     description: 'Discover why we built adblockerGPT and our commitment to providing an ad-free, privacy-focused ChatGPT experience.',
     type: 'website',
-    url: 'https://adblockergpt.com/about',
+    url: 'https://www.adblockergpt.com/about',
   },
 }
 

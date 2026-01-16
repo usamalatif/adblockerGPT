@@ -10,11 +10,11 @@ export const metadata: Metadata = {
     title: 'Why Does ChatGPT Show Ads? OpenAI\'s Monetization Explained',
     description: 'Understanding OpenAI\'s decision to introduce advertising and what it means for users.',
     type: 'article',
-    url: 'https://adblockergpt.com/blog/why-chatgpt-shows-ads',
+    url: 'https://www.adblockergpt.com/blog/why-chatgpt-shows-ads',
     publishedTime: '2026-01-15T00:00:00.000Z',
   },
   alternates: {
-    canonical: 'https://adblockergpt.com/blog/why-chatgpt-shows-ads',
+    canonical: 'https://www.adblockergpt.com/blog/why-chatgpt-shows-ads',
   },
 }
 

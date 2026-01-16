@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: '5 Best Ways to Block ChatGPT Ads in 2026 | Complete Guide',
     description: 'Compare top ChatGPT ad blockers. Find the best free solution to remove ads from ChatGPT instantly.',
     type: 'article',
-    url: 'https://adblockergpt.com/blog/block-chatgpt-ads-2026',
+    url: 'https://www.adblockergpt.com/blog/block-chatgpt-ads-2026',
     publishedTime: '2026-01-01T00:00:00.000Z',
     modifiedTime: '2026-01-17T00:00:00.000Z',
     section: 'Ad Blocking',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description: 'Complete guide to blocking ads on ChatGPT. Compare the top ad blockers.',
   },
   alternates: {
-    canonical: 'https://adblockergpt.com/blog/block-chatgpt-ads-2026',
+    canonical: 'https://www.adblockergpt.com/blog/block-chatgpt-ads-2026',
   },
 }
 
@@ -37,16 +37,16 @@ const structuredData = {
       author: {
         '@type': 'Organization',
         name: 'adblockerGPT',
-        url: 'https://adblockergpt.com',
+        url: 'https://www.adblockergpt.com',
       },
       publisher: {
         '@type': 'Organization',
         name: 'adblockerGPT',
-        url: 'https://adblockergpt.com',
+        url: 'https://www.adblockergpt.com',
       },
       datePublished: '2026-01-01',
       dateModified: '2026-01-17',
-      mainEntityOfPage: 'https://adblockergpt.com/blog/block-chatgpt-ads-2026',
+      mainEntityOfPage: 'https://www.adblockergpt.com/blog/block-chatgpt-ads-2026',
     },
     {
       '@type': 'FAQPage',

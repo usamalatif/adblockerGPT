@@ -1,0 +1,53 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#202123;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#343541;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Decorative elements -->
+  <circle cx="1100" cy="100" r="200" fill="#10a37f" opacity="0.1"/>
+  <circle cx="100" cy="530" r="150" fill="#10a37f" opacity="0.1"/>
+
+  <!-- Icon -->
+  <g transform="translate(500, 120)">
+    <circle cx="100" cy="100" r="90" fill="url(#iconGrad)"/>
+    <path d="M100 35 L155 55 L155 100 C155 130 135 155 100 175 C65 155 45 130 45 100 L45 55 Z"
+          fill="white"
+          opacity="0.95"/>
+    <path d="M78 100 L93 115 L125 75"
+          stroke="#10B981"
+          stroke-width="12"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          fill="none"/>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="350" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="bold" fill="white" text-anchor="middle">
+    adblockerGPT
+  </text>
+
+  <!-- Subtitle -->
+  <text x="600" y="420" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#9CA3AF" text-anchor="middle">
+    Block Ads on ChatGPT
+  </text>
+
+  <!-- Tagline -->
+  <text x="600" y="480" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#10a37f" text-anchor="middle">
+    Free • Privacy-Focused • Zero Data Collection
+  </text>
+
+  <!-- URL -->
+  <text x="600" y="580" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="#6B7280" text-anchor="middle">
+    adblockergpt.com
+  </text>
+</svg>

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'adblockerGPT Blog - ChatGPT Ad Blocking Guides',
     description: 'Expert guides and tutorials on blocking ads in ChatGPT. Compare ad blockers and learn the best methods.',
     type: 'website',
-    url: 'https://adblockergpt.com/blog',
+    url: 'https://www.adblockergpt.com/blog',
   },
 }
 

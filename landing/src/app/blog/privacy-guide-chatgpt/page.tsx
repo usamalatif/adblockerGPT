@@ -10,11 +10,11 @@ export const metadata: Metadata = {
     title: 'Ultimate Privacy Guide for ChatGPT Users in 2026',
     description: 'Learn how to protect your privacy while using ChatGPT with our comprehensive guide.',
     type: 'article',
-    url: 'https://adblockergpt.com/blog/privacy-guide-chatgpt',
+    url: 'https://www.adblockergpt.com/blog/privacy-guide-chatgpt',
     publishedTime: '2026-01-12T00:00:00.000Z',
   },
   alternates: {
-    canonical: 'https://adblockergpt.com/blog/privacy-guide-chatgpt',
+    canonical: 'https://www.adblockergpt.com/blog/privacy-guide-chatgpt',
   },
 }
 

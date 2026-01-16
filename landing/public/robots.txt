@@ -1,11 +1,11 @@
 # robots.txt for adblockerGPT
-# https://adblockergpt.com
+# https://www.adblockergpt.com
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://adblockergpt.com/sitemap.xml
+Sitemap: https://www.adblockergpt.com/sitemap.xml
 
 # Allow all crawlers
 User-agent: Googlebot

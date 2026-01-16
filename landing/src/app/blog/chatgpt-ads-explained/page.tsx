@@ -10,11 +10,11 @@ export const metadata: Metadata = {
     title: 'ChatGPT Ads Explained: What You Need to Know in 2026',
     description: 'Complete guide to understanding ChatGPT advertisements and how they affect your experience.',
     type: 'article',
-    url: 'https://adblockergpt.com/blog/chatgpt-ads-explained',
+    url: 'https://www.adblockergpt.com/blog/chatgpt-ads-explained',
     publishedTime: '2026-01-10T00:00:00.000Z',
   },
   alternates: {
-    canonical: 'https://adblockergpt.com/blog/chatgpt-ads-explained',
+    canonical: 'https://www.adblockergpt.com/blog/chatgpt-ads-explained',
   },
 }
 
