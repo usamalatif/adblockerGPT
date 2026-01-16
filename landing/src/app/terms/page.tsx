@@ -112,9 +112,9 @@ export default function TermsOfService() {
           <section className="mb-8">
             <h2 className="text-2xl font-semibold text-white mb-4">13. Contact Information</h2>
             <p className="text-gray-300 leading-relaxed">
-              If you have any questions about these Terms, please contact us at{' '}
-              <a href="mailto:legal@adblockergpt.com" className="text-chatgpt-green hover:underline">
-                legal@adblockergpt.com
+              If you have any questions about these Terms, please contact us via{' '}
+              <a href="https://x.com/OrdinaryWeb3Dev" target="_blank" rel="noopener noreferrer" className="text-chatgpt-green hover:underline">
+                Twitter / X
               </a>
             </p>
           </section>

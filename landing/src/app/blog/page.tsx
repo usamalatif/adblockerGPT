@@ -41,6 +41,15 @@ const blogPosts = [
     readTime: '6 min read',
     featured: false,
   },
+  {
+    slug: 'why-chatgpt-shows-ads',
+    title: 'Why Does ChatGPT Show Ads? OpenAI\'s Monetization Strategy',
+    description: 'Discover why OpenAI introduced advertising to ChatGPT, how it affects free users, and what alternatives you have for an ad-free experience.',
+    date: 'January 2026',
+    category: 'Analysis',
+    readTime: '4 min read',
+    featured: false,
+  },
 ]
 
 export default function BlogPage() {

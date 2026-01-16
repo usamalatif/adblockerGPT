@@ -12,12 +12,6 @@ const TwitterIcon = () => (
   </svg>
 )
 
-const EmailIcon = () => (
-  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-  </svg>
-)
-
 const MessageIcon = () => (
   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -44,42 +38,26 @@ export default function ContactPage() {
           </h1>
           <p className="text-xl text-gray-400 leading-relaxed max-w-3xl">
             Have questions, feedback, or just want to say hello? We&apos;d love to hear from you.
-            Reach out through any of the channels below.
+            Reach out on Twitter for the fastest response.
           </p>
         </section>
 
-        {/* Contact Methods */}
-        <div className="grid md:grid-cols-2 gap-6 mb-16">
-          {/* Twitter/X - Primary */}
+        {/* Contact Method - Twitter Only */}
+        <div className="mb-16">
           <a
             href="https://x.com/OrdinaryWeb3Dev"
             target="_blank"
             rel="noopener noreferrer"
-            className="glass rounded-2xl p-8 hover:border-chatgpt-green/50 transition-all duration-300 border border-transparent group"
+            className="glass rounded-2xl p-8 hover:border-chatgpt-green/50 transition-all duration-300 border border-transparent group block max-w-md mx-auto"
           >
-            <div className="w-14 h-14 bg-chatgpt-green/20 rounded-xl flex items-center justify-center text-chatgpt-green mb-4 group-hover:bg-chatgpt-green group-hover:text-white transition-all duration-300">
+            <div className="w-14 h-14 bg-chatgpt-green/20 rounded-xl flex items-center justify-center text-chatgpt-green mb-4 group-hover:bg-chatgpt-green group-hover:text-white transition-all duration-300 mx-auto">
               <TwitterIcon />
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Twitter / X</h3>
-            <p className="text-gray-400 mb-4">
+            <h3 className="text-xl font-semibold text-white mb-2 text-center">Twitter / X</h3>
+            <p className="text-gray-400 mb-4 text-center">
               Follow us and send a DM for the fastest response. We&apos;re active daily.
             </p>
-            <span className="text-chatgpt-green font-medium">@OrdinaryWeb3Dev →</span>
-          </a>
-
-          {/* Email */}
-          <a
-            href="mailto:support@adblockergpt.com"
-            className="glass rounded-2xl p-8 hover:border-chatgpt-green/50 transition-all duration-300 border border-transparent group"
-          >
-            <div className="w-14 h-14 bg-chatgpt-green/20 rounded-xl flex items-center justify-center text-chatgpt-green mb-4 group-hover:bg-chatgpt-green group-hover:text-white transition-all duration-300">
-              <EmailIcon />
-            </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Email</h3>
-            <p className="text-gray-400 mb-4">
-              For detailed inquiries or if you prefer email communication.
-            </p>
-            <span className="text-chatgpt-green font-medium">support@adblockergpt.com →</span>
+            <span className="text-chatgpt-green font-medium block text-center">@OrdinaryWeb3Dev →</span>
           </a>
         </div>
 
@@ -114,8 +92,7 @@ export default function ContactPage() {
                   <p className="text-gray-400 mb-2">
                     Found an issue or ads that aren&apos;t being blocked? Let us know! Include details like your
                     browser version, what you&apos;re seeing, and any error messages. DM us on{' '}
-                    <a href="https://x.com/OrdinaryWeb3Dev" target="_blank" rel="noopener noreferrer" className="text-chatgpt-green hover:underline">Twitter</a>{' '}
-                    or email us.
+                    <a href="https://x.com/OrdinaryWeb3Dev" target="_blank" rel="noopener noreferrer" className="text-chatgpt-green hover:underline">Twitter</a>.
                   </p>
                 </div>
               </div>
@@ -148,8 +125,8 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-lg font-semibold text-white mb-2">Business & Partnerships</h3>
                   <p className="text-gray-400 mb-2">
-                    Interested in collaborating or have a business proposal? Email us at{' '}
-                    <a href="mailto:business@adblockergpt.com" className="text-chatgpt-green hover:underline">business@adblockergpt.com</a>
+                    Interested in collaborating or have a business proposal? Reach out via{' '}
+                    <a href="https://x.com/OrdinaryWeb3Dev" target="_blank" rel="noopener noreferrer" className="text-chatgpt-green hover:underline">Twitter DM</a>.
                   </p>
                 </div>
               </div>
@@ -162,7 +139,7 @@ export default function ContactPage() {
           <h2 className="text-2xl font-semibold text-white mb-4">Response Time</h2>
           <p className="text-gray-400 max-w-xl mx-auto">
             We typically respond to Twitter DMs within a few hours during business days.
-            Email responses may take 24-48 hours. For urgent issues, Twitter is your best bet.
+            For urgent issues, Twitter is your best bet!
           </p>
         </section>
 

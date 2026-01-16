@@ -639,8 +639,8 @@ export default function Home() {
             <div>
               <h4 className="font-semibold text-white mb-4">Connect</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="https://twitter.com/adblockergpt" target="_blank" rel="noopener noreferrer" className="hover:text-chatgpt-green transition-colors">Twitter</a></li>
-                <li><a href="mailto:support@adblockergpt.com" className="hover:text-chatgpt-green transition-colors">Contact Us</a></li>
+                <li><a href="https://x.com/OrdinaryWeb3Dev" target="_blank" rel="noopener noreferrer" className="hover:text-chatgpt-green transition-colors">Twitter / X</a></li>
+                <li><a href="/contact" className="hover:text-chatgpt-green transition-colors">Contact Us</a></li>
               </ul>
             </div>
           </div>

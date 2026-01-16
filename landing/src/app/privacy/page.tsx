@@ -80,9 +80,9 @@ export default function PrivacyPolicy() {
           <section className="mb-8">
             <h2 className="text-2xl font-semibold text-white mb-4">Contact Us</h2>
             <p className="text-gray-300 leading-relaxed">
-              If you have any questions about this Privacy Policy, please contact us at{' '}
-              <a href="mailto:privacy@adblockergpt.com" className="text-chatgpt-green hover:underline">
-                privacy@adblockergpt.com
+              If you have any questions about this Privacy Policy, please contact us via{' '}
+              <a href="https://x.com/OrdinaryWeb3Dev" target="_blank" rel="noopener noreferrer" className="text-chatgpt-green hover:underline">
+                Twitter / X
               </a>
             </p>
           </section>
