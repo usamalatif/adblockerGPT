@@ -3,6 +3,9 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Privacy Policy | adblockerGPT',
   description: 'adblockerGPT privacy policy. Learn how we protect your data and maintain your privacy.',
+  alternates: {
+    canonical: 'https://www.adblockergpt.com/privacy',
+  },
 }
 
 export default function PrivacyPolicy() {

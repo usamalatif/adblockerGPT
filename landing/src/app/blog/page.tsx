@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://www.adblockergpt.com/blog',
   },
+  alternates: {
+    canonical: 'https://www.adblockergpt.com/blog',
+  },
 }
 
 const blogPosts = [

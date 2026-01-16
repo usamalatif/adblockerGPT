@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: 'Terms of Service | adblockerGPT',
   description: 'adblockerGPT terms of service. Read our terms and conditions for using the adblockerGPT browser extension.',
   keywords: 'adblockerGPT terms, terms of service, terms and conditions, chatgpt ad blocker terms',
+  alternates: {
+    canonical: 'https://www.adblockergpt.com/terms',
+  },
 }
 
 export default function TermsOfService() {

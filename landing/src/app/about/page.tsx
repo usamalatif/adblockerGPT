@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://www.adblockergpt.com/about',
   },
+  alternates: {
+    canonical: 'https://www.adblockergpt.com/about',
+  },
 }
 
 export default function AboutPage() {

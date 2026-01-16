@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: 'Contact Us | adblockerGPT',
   description: 'Get in touch with the adblockerGPT team. Contact us for support, feedback, or partnership inquiries.',
   keywords: 'contact adblockerGPT, adblockerGPT support, chatgpt ad blocker contact, adblockerGPT help',
+  alternates: {
+    canonical: 'https://www.adblockergpt.com/contact',
+  },
 }
 
 const TwitterIcon = () => (
