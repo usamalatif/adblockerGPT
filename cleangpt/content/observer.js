@@ -83,11 +83,17 @@ const adblockerGPTObserver = {
    * Load settings from storage
    */
   async loadSettings() {
+    // Check if extension context is still valid
+    if (!chrome.runtime?.id) {
+      this.isEnabled = true;
+      return;
+    }
+
     try {
       const response = await chrome.runtime.sendMessage({ type: 'GET_SETTINGS' });
       this.isEnabled = response.enabled !== false;
     } catch (error) {
-      console.warn('[adblockerGPT] Could not load settings, using defaults');
+      // Extension context invalidated or other error - use defaults
       this.isEnabled = true;
     }
   },

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Small Promo Tile - 440x280</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 440px;
+      height: 280px;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #202123 0%, #343541 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .glow {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(16, 163, 127, 0.3) 0%, transparent 70%);
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .logo {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 40px rgba(16, 163, 127, 0.4);
+      position: relative;
+      z-index: 1;
+    }
+    .logo svg {
+      width: 50px;
+      height: 50px;
+    }
+    .headline {
+      font-size: 28px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+    .tagline {
+      font-size: 16px;
+      font-weight: 500;
+      color: #10a37f;
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="logo">
+    <svg viewBox="0 0 128 128" fill="none">
+      <path d="M64 15 L110 35 L110 75 C110 100 90 120 64 128 C38 120 18 100 18 75 L18 35 Z" fill="white" opacity="0.95"/>
+      <path d="M50 65 L60 75 L80 50" stroke="#10B981" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+  </div>
+  <div class="headline">Block ChatGPT Ads</div>
+  <div class="tagline">Free & Private</div>
+</body>
+</html>

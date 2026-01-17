@@ -90,17 +90,21 @@ const adblockerGPTRemover = {
    * Send message to background script about blocked ad
    */
   notifyAdBlocked() {
-    try {
-      chrome.runtime.sendMessage({
-        type: 'AD_BLOCKED',
-        count: 1,
-        url: window.location.href,
-        timestamp: Date.now()
-      });
-    } catch (error) {
-      // Extension context might be invalid
-      console.warn('[adblockerGPT] Could not notify background:', error);
+    // Check if extension context is still valid
+    if (!chrome.runtime?.id) {
+      // Extension was reloaded - silently ignore
+      return;
     }
+
+    chrome.runtime.sendMessage({
+      type: 'AD_BLOCKED',
+      count: 1,
+      url: window.location.href,
+      timestamp: Date.now()
+    }).catch(() => {
+      // Extension context invalidated (extension reloaded) - silently ignore
+      // User needs to refresh the page to reconnect
+    });
   },
 
   /**

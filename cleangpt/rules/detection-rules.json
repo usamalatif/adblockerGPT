@@ -1,7 +1,7 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "lastUpdated": "2026-01-17",
-  "description": "adblockerGPT ad detection rules for ChatGPT",
+  "description": "adblockerGPT ad detection rules - ChatGPT focused + all websites",
 
   "rules": {
     "classPatterns": [
@@ -9,9 +9,22 @@
       ".*\\bad[-_]?wrapper.*",
       ".*\\bad[-_]?slot.*",
       ".*\\bad[-_]?banner.*",
+      ".*\\bad[-_]?unit.*",
+      ".*\\bad[-_]?placement.*",
+      ".*\\bad[-_]?block.*",
+      ".*\\bad[-_]?frame.*",
+      ".*\\bad[-_]?box.*",
       ".*\\bsponsored[-_]?content.*",
       ".*\\bpaid[-_]?promotion.*",
-      ".*\\bnative[-_]?ad.*"
+      ".*\\bnative[-_]?ad.*",
+      ".*\\bgoogle[-_]?ad.*",
+      ".*\\badsense.*",
+      ".*\\badsbygoogle.*",
+      ".*\\bdoubleclick.*",
+      ".*\\btaboola.*",
+      ".*\\boutbrain.*",
+      ".*\\bmgid.*",
+      ".*\\brevcontent.*"
     ],
 
     "dataAttributes": [
@@ -19,10 +32,16 @@
       "data-ad-slot",
       "data-ad-client",
       "data-ad-format",
+      "data-ad-layout",
+      "data-ad-region",
       "data-sponsored",
       "data-promotion",
       "data-advertisement",
-      "data-native-ad"
+      "data-native-ad",
+      "data-dfp",
+      "data-google-query-id",
+      "data-taboola",
+      "data-outbrain"
     ],
 
     "textIndicators": [
@@ -33,18 +52,36 @@
       "sponsored content",
       "partner content",
       "presented by",
-      "brought to you by"
+      "brought to you by",
+      "ads by google",
+      "advertisement"
     ],
 
     "structuralSelectors": [
       "[class*=\"ad-\"]:not([class*=\"load\"]):not([class*=\"add\"])",
       "[class*=\"-ad\"]:not([class*=\"load\"]):not([class*=\"head\"])",
+      "[id*=\"ad-\"]:not([id*=\"load\"]):not([id*=\"add\"])",
+      "[id*=\"-ad\"]:not([id*=\"load\"]):not([id*=\"head\"])",
       "[data-testid*=\"ad\"]",
       "[data-testid*=\"sponsor\"]",
       "[aria-label*=\"advertisement\"]",
       "[aria-label*=\"sponsored\"]",
       "iframe[src*=\"doubleclick\"]",
-      "iframe[src*=\"googlesyndication\"]"
+      "iframe[src*=\"googlesyndication\"]",
+      "iframe[src*=\"googleads\"]",
+      "iframe[src*=\"amazon-adsystem\"]",
+      "iframe[src*=\"facebook.com/plugins\"]",
+      "ins.adsbygoogle",
+      "[id^=\"google_ads_\"]",
+      "[id^=\"div-gpt-ad\"]",
+      ".taboola-widget",
+      ".outbrain-widget",
+      "[class*=\"taboola\"]",
+      "[class*=\"outbrain\"]",
+      "[class*=\"mgid\"]",
+      "[class*=\"revcontent\"]",
+      "[class*=\"sponsored-post\"]",
+      "[class*=\"promoted-post\"]"
     ],
 
     "chatgptSelectors": [
@@ -60,6 +97,56 @@
       "[data-message-author-role=\"assistant\"] [class*=\"sponsor\"]"
     ],
 
+    "googleAdsSelectors": [
+      "ins.adsbygoogle",
+      "[id^=\"google_ads_\"]",
+      "[id^=\"div-gpt-ad\"]",
+      "[data-ad-client]",
+      "[data-ad-slot]",
+      "iframe[src*=\"doubleclick.net\"]",
+      "iframe[src*=\"googlesyndication.com\"]",
+      "iframe[src*=\"googleadservices.com\"]",
+      "iframe[src*=\"googleads.g.doubleclick.net\"]",
+      "[class*=\"google-ad\"]",
+      "[class*=\"GoogleAd\"]",
+      ".adsbygoogle",
+      "#google_ads_frame",
+      "[id*=\"google_ads_iframe\"]"
+    ],
+
+    "socialMediaAdsSelectors": [
+      "[data-testid=\"placementTracking\"]",
+      "[data-ad-preview]",
+      "[class*=\"sponsored\"]",
+      "[class*=\"promoted-trend\"]",
+      "[class*=\"promoted-tweet\"]",
+      "[data-promoted=\"true\"]"
+    ],
+
+    "networkBlocklist": [
+      "doubleclick.net",
+      "googlesyndication.com",
+      "googleadservices.com",
+      "googleads.g.doubleclick.net",
+      "pagead2.googlesyndication.com",
+      "adservice.google.com",
+      "amazon-adsystem.com",
+      "taboola.com",
+      "outbrain.com",
+      "mgid.com",
+      "revcontent.com",
+      "criteo.com",
+      "adnxs.com",
+      "adsrvr.org",
+      "rubiconproject.com",
+      "pubmatic.com",
+      "openx.net",
+      "casalemedia.com",
+      "advertising.com",
+      "adform.net",
+      "media.net"
+    ],
+
     "exclusions": [
       ".*\\badd\\b.*",
       ".*\\bload.*",
@@ -68,7 +155,13 @@
       ".*\\bgrad.*",
       ".*\\bpad.*",
       ".*\\bdownload.*",
-      ".*\\bupload.*"
+      ".*\\bupload.*",
+      ".*\\bdialog.*",
+      ".*\\bthread.*",
+      ".*\\bspread.*",
+      ".*\\bbadge.*",
+      ".*\\bshadow.*",
+      ".*\\bleading.*"
     ]
   },
 
@@ -89,6 +182,8 @@
     "maxRetries": 3,
     "logLevel": "warn",
     "enableVisualHeuristics": true,
-    "enablePositionDetection": true
+    "enablePositionDetection": true,
+    "enableNetworkBlocking": true,
+    "prioritizeChatGPT": true
   }
 }

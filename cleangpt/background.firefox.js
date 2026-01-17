@@ -1,9 +1,9 @@
 /**
- * adblockerGPT - Background Script (Chrome version)
+ * adblockerGPT - Background Script (Firefox version)
  * Handles extension state, messaging, and badge updates
  */
 
-import Analytics from './analytics.js';
+// Analytics is loaded before this script via manifest.json background.scripts
 
 // Default settings
 const DEFAULT_SETTINGS = {

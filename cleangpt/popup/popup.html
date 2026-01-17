@@ -14,7 +14,7 @@
         <img src="../icons/icon-32.png" alt="adblockerGPT" class="logo-icon">
         <span class="logo-text">adblockerGPT</span>
       </div>
-      <span class="version">v1.0.0</span>
+      <span class="version">v1.1.0</span>
     </header>
 
     <!-- Status Section -->
@@ -23,13 +23,18 @@
         <span class="status-dot"></span>
         <span class="status-text">Protection Active</span>
       </div>
+      <p class="status-subtitle">ChatGPT + All Websites</p>
     </section>
 
     <!-- Stats Section -->
     <section class="stats-section">
       <div class="stat-card">
-        <span class="stat-number" id="adsBlocked">0</span>
-        <span class="stat-label">Ads Blocked</span>
+        <span class="stat-number" id="currentPageBlocked">0</span>
+        <span class="stat-label">Blocked on This Page</span>
+      </div>
+      <div class="stat-card stat-card-secondary">
+        <span class="stat-number-small" id="totalAdsBlocked">0</span>
+        <span class="stat-label-small">Total Ads Blocked (All Time)</span>
       </div>
     </section>
 
@@ -56,6 +61,14 @@
     <section class="actions-section">
       <button class="btn btn-secondary" id="resetStats">Reset Stats</button>
       <button class="btn btn-secondary" id="openOptions">Settings</button>
+    </section>
+
+    <!-- Support Section -->
+    <section class="support-section">
+      <a href="https://www.buymeacoffee.com/ordinarykai" target="_blank" class="bmc-button">
+        <span class="bmc-emoji">☕</span>
+        <span class="bmc-text">Buy me a coffee</span>
+      </a>
     </section>
 
     <!-- Footer -->

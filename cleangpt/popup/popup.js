@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', init);
 async function init() {
   await loadSettings();
   setupEventListeners();
+
+  // Track popup opened in analytics
+  chrome.runtime.sendMessage({ type: 'POPUP_OPENED' });
 }
 
 /**
@@ -14,20 +17,34 @@ async function init() {
  */
 async function loadSettings() {
   try {
-    const response = await chrome.runtime.sendMessage({ type: 'GET_SETTINGS' });
+    const response = await chrome.runtime.sendMessage({ type: 'GET_SETTINGS_FOR_POPUP' });
 
     // Update toggle states
     document.getElementById('enableToggle').checked = response.enabled !== false;
     document.getElementById('badgeToggle').checked = response.showBadge !== false;
 
-    // Update stats
-    document.getElementById('adsBlocked').textContent = response.adsBlocked || 0;
+    // Update stats - current page and total
+    document.getElementById('currentPageBlocked').textContent = response.currentPageBlocked || 0;
+    document.getElementById('totalAdsBlocked').textContent = formatNumber(response.totalAdsBlocked || 0);
 
     // Update status indicator
     updateStatusIndicator(response.enabled !== false);
   } catch (error) {
     console.error('Error loading settings:', error);
   }
+}
+
+/**
+ * Format large numbers (e.g., 1000 -> 1K)
+ */
+function formatNumber(num) {
+  if (num >= 1000000) {
+    return (num / 1000000).toFixed(1) + 'M';
+  }
+  if (num >= 1000) {
+    return (num / 1000).toFixed(1) + 'K';
+  }
+  return num.toString();
 }
 
 /**
@@ -71,7 +88,8 @@ function setupEventListeners() {
   // Reset stats button
   document.getElementById('resetStats').addEventListener('click', async () => {
     await chrome.runtime.sendMessage({ type: 'RESET_STATS' });
-    document.getElementById('adsBlocked').textContent = '0';
+    document.getElementById('currentPageBlocked').textContent = '0';
+    document.getElementById('totalAdsBlocked').textContent = '0';
   });
 
   // Open options button

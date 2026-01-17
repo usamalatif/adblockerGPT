@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>OG Image / Social Share - 1200x630</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1200px;
+      height: 630px;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #202123 0%, #2d2e3a 50%, #343541 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(16, 163, 127, 0.25) 0%, transparent 70%);
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .glow-2 {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(16, 163, 127, 0.15) 0%, transparent 70%);
+      bottom: -150px;
+      left: 100px;
+    }
+    .glow-3 {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(16, 163, 127, 0.15) 0%, transparent 70%);
+      bottom: -150px;
+      right: 100px;
+    }
+    .logo {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 32px;
+      box-shadow: 0 20px 60px rgba(16, 163, 127, 0.5);
+      position: relative;
+      z-index: 1;
+    }
+    .logo svg {
+      width: 75px;
+      height: 75px;
+    }
+    .brand {
+      font-size: 56px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .headline {
+      font-size: 32px;
+      font-weight: 500;
+      color: #9CA3AF;
+      margin-bottom: 32px;
+      position: relative;
+      z-index: 1;
+    }
+    .tagline {
+      font-size: 20px;
+      font-weight: 500;
+      color: #10a37f;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+    .url {
+      font-size: 18px;
+      color: #6B7280;
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="glow-2"></div>
+  <div class="glow-3"></div>
+
+  <div class="logo">
+    <svg viewBox="0 0 128 128" fill="none">
+      <path d="M64 15 L110 35 L110 75 C110 100 90 120 64 128 C38 120 18 100 18 75 L18 35 Z" fill="white" opacity="0.95"/>
+      <path d="M50 65 L60 75 L80 50" stroke="#10B981" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+  </div>
+  <div class="brand">adblockerGPT</div>
+  <div class="headline">Block Ads on ChatGPT</div>
+  <div class="tagline">Free • Privacy-Focused • Zero Data Collection</div>
+  <div class="url">adblockergpt.com</div>
+</body>
+</html>

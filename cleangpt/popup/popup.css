@@ -98,6 +98,13 @@ body {
   color: #991b1b;
 }
 
+.status-subtitle {
+  font-size: 11px;
+  color: #6b7280;
+  text-align: center;
+  margin-top: 8px;
+}
+
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
@@ -106,6 +113,9 @@ body {
 /* Stats Section */
 .stats-section {
   margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .stat-card {
@@ -118,6 +128,14 @@ body {
   border: 1px solid #d1fae5;
 }
 
+.stat-card-secondary {
+  padding: 10px 16px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .stat-number {
   font-size: 32px;
   font-weight: 700;
@@ -125,10 +143,27 @@ body {
   line-height: 1;
 }
 
+.stat-number-small {
+  font-size: 16px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
 .stat-label {
   font-size: 12px;
   color: #6b7280;
   margin-top: 4px;
+}
+
+.stat-label-small {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.stat-detail {
+  font-size: 10px;
+  color: #9ca3af;
+  margin-top: 6px;
 }
 
 /* Toggle Section */
@@ -227,6 +262,46 @@ body {
 
 .btn-secondary:active {
   background: #d1d5db;
+}
+
+/* Support Section */
+.support-section {
+  margin-bottom: 16px;
+}
+
+.bmc-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  background: #FFDD00;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.15s;
+  box-shadow: 0 2px 8px rgba(255, 221, 0, 0.3);
+}
+
+.bmc-button:hover {
+  background: #ffea70;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 221, 0, 0.4);
+}
+
+.bmc-button:active {
+  transform: translateY(0);
+}
+
+.bmc-emoji {
+  font-size: 18px;
+}
+
+.bmc-text {
+  font-family: 'Cookie', cursive, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  color: #000000;
+  font-weight: 400;
 }
 
 /* Footer */

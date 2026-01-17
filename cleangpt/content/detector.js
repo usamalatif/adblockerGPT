@@ -85,12 +85,51 @@ const adblockerGPTDetector = {
       '[aria-label*="sponsored"]',
       '[role="complementary"][class*="ad"]',
 
-      // Common ad network patterns
-      'iframe[src*="doubleclick"]',
-      'iframe[src*="googlesyndication"]',
-      'iframe[src*="googleads"]',
+      // Google Ads specific
+      'ins.adsbygoogle',
+      '.adsbygoogle',
+      '[id^="google_ads_"]',
+      '[id^="div-gpt-ad"]',
+      '[id*="google_ads_iframe"]',
+      '[data-ad-client]',
+      '[data-ad-slot]',
+      'iframe[src*="doubleclick.net"]',
+      'iframe[src*="googlesyndication.com"]',
+      'iframe[src*="googleadservices.com"]',
+      'iframe[src*="googleads.g.doubleclick.net"]',
+      'iframe[src*="pagead2.googlesyndication.com"]',
       '[class*="google-ad"]',
-      '[class*="dfp-"]'
+      '[class*="GoogleAd"]',
+      '[class*="dfp-"]',
+
+      // Amazon Ads
+      'iframe[src*="amazon-adsystem"]',
+      '[class*="amzn-ad"]',
+
+      // Taboola
+      '.taboola-widget',
+      '[class*="taboola"]',
+      '[id*="taboola"]',
+      'iframe[src*="taboola"]',
+
+      // Outbrain
+      '.outbrain-widget',
+      '[class*="outbrain"]',
+      '[id*="outbrain"]',
+      'iframe[src*="outbrain"]',
+
+      // Other ad networks
+      '[class*="mgid"]',
+      '[class*="revcontent"]',
+      '[class*="criteo"]',
+      '[class*="adnxs"]',
+      'iframe[src*="criteo"]',
+      'iframe[src*="adnxs"]',
+
+      // Social media ads
+      '[class*="sponsored-post"]',
+      '[class*="promoted-post"]',
+      '[data-promoted="true"]'
     ],
 
     // Strategy 5: OpenAI/ChatGPT specific patterns (to be updated when ads launch)
@@ -222,6 +261,7 @@ const adblockerGPTDetector = {
       textMatch: this.checkTextContent(element),
       selectorMatch: this.checkStructuralPatterns(element),
       chatgptMatch: this.checkChatGPTPatterns(element),
+      googleAdsMatch: this.checkGoogleAdsPatterns(element),
       visualMatch: this.checkVisualHeuristics(element),
       positionMatch: this.checkPositionBased(element)
     };
@@ -319,6 +359,11 @@ const adblockerGPTDetector = {
    * Strategy 5: Check ChatGPT-specific patterns
    */
   checkChatGPTPatterns(element) {
+    // Only run on ChatGPT domains
+    const isChatGPT = window.location.hostname.includes('chatgpt.com') ||
+                      window.location.hostname.includes('chat.openai.com');
+    if (!isChatGPT) return false;
+
     return this.rules.chatgptSelectors.some(selector => {
       try {
         return element.matches(selector);
@@ -326,6 +371,37 @@ const adblockerGPTDetector = {
         return false;
       }
     });
+  },
+
+  /**
+   * Strategy 5b: Check Google Ads patterns
+   */
+  checkGoogleAdsPatterns(element) {
+    // Check for Google AdSense
+    if (element.tagName === 'INS' && element.classList.contains('adsbygoogle')) {
+      return true;
+    }
+
+    // Check for Google Ad iframes
+    if (element.tagName === 'IFRAME') {
+      const src = element.src || '';
+      if (/doubleclick\.net|googlesyndication\.com|googleadservices\.com|googleads\.g\.doubleclick\.net/.test(src)) {
+        return true;
+      }
+    }
+
+    // Check for Google Ad containers
+    const id = element.id || '';
+    if (/^google_ads_|^div-gpt-ad|google_ads_iframe/.test(id)) {
+      return true;
+    }
+
+    // Check data attributes
+    if (element.hasAttribute('data-ad-client') || element.hasAttribute('data-ad-slot')) {
+      return true;
+    }
+
+    return false;
   },
 
   /**
