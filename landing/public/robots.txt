@@ -7,7 +7,7 @@ Allow: /
 # Sitemap location
 Sitemap: https://www.adblockergpt.com/sitemap.xml
 
-# Allow all crawlers
+# Allow all search engine crawlers
 User-agent: Googlebot
 Allow: /
 
@@ -26,18 +26,30 @@ Allow: /
 User-agent: YandexBot
 Allow: /
 
-# Block AI training bots (optional - remove if you want AI to train on your content)
+# Allow AI/LLM crawlers for GEO (Generative Engine Optimization)
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: ChatGPT-User
-Disallow: /
+Allow: /
 
 User-agent: CCBot
-Disallow: /
+Allow: /
 
 User-agent: anthropic-ai
-Disallow: /
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
 
 User-agent: Google-Extended
-Disallow: /
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
