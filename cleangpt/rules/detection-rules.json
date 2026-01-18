@@ -87,14 +87,39 @@
     "chatgptSelectors": [
       "[data-testid*=\"chatgpt-ad\"]",
       "[data-testid*=\"response-ad\"]",
+      "[data-testid*=\"sponsored\"]",
+      "[data-testid*=\"sponsor\"]",
       "[class*=\"chatgpt-ad\"]",
       "[class*=\"response-ad\"]",
       "[class*=\"conversation-ad\"]",
       "[class*=\"message-ad\"]",
+      "[class*=\"sponsored-result\"]",
+      "[class*=\"sponsored-card\"]",
+      "[class*=\"sponsor-card\"]",
+      "[class*=\"ad-card\"]",
+      "[class*=\"chat-sponsor\"]",
+      "[class*=\"chat-ad\"]",
       ".message-content > [class*=\"sponsor\"]",
       ".message-content > [class*=\"promo\"]",
       "[data-message-author-role=\"assistant\"] [class*=\"ad-\"]",
-      "[data-message-author-role=\"assistant\"] [class*=\"sponsor\"]"
+      "[data-message-author-role=\"assistant\"] [class*=\"sponsor\"]",
+      "[data-message-author-role=\"assistant\"] + [class*=\"sponsor\"]",
+      "[aria-label*=\"Sponsored\"]",
+      "[aria-label*=\"sponsored\"]",
+      "[aria-label=\"Sponsored result\"]",
+      "[role=\"complementary\"][class*=\"sponsor\"]",
+      "[role=\"region\"][class*=\"sponsor\"]",
+      "div:has(> span:contains('Sponsored'))",
+      "div:has(> div > span:contains('Sponsored'))"
+    ],
+
+    "chatgptTextMatchers": [
+      "Sponsored",
+      "Chat with sponsor",
+      "Chat with advertiser",
+      "Sponsored result",
+      "Promoted",
+      "Ad"
     ],
 
     "googleAdsSelectors": [

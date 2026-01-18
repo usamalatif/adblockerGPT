@@ -101,7 +101,7 @@ function getBrowserInfo(browserType: BrowserType): BrowserInfo {
       type: 'firefox',
       name: 'Firefox',
       icon: <FirefoxIcon />,
-      storeUrl: 'https://addons.mozilla.org/firefox/addon/adblockergpt',
+      storeUrl: 'https://addons.mozilla.org/en-GB/firefox/addon/adblockergpt-ad-block-chatgpt/',
       supported: true
     },
     edge: {

@@ -132,19 +132,59 @@ const adblockerGPTDetector = {
       '[data-promoted="true"]'
     ],
 
-    // Strategy 5: OpenAI/ChatGPT specific patterns (to be updated when ads launch)
+    // Strategy 5: OpenAI/ChatGPT specific patterns
+    // Based on OpenAI announcement: ads appear at bottom of responses, labeled "Sponsored"
     chatgptSelectors: [
-      // Placeholder selectors - will be refined when actual ads appear
+      // Data testid patterns
       '[data-testid*="chatgpt-ad"]',
       '[data-testid*="response-ad"]',
+      '[data-testid*="sponsored"]',
+      '[data-testid*="sponsor"]',
+      '[data-testid*="ad-card"]',
+      '[data-testid*="ad-unit"]',
+
+      // Class patterns
       '[class*="chatgpt-ad"]',
       '[class*="response-ad"]',
       '[class*="conversation-ad"]',
       '[class*="message-ad"]',
-      // Bottom of response patterns (OpenAI mentioned ads at bottom)
+      '[class*="sponsored-result"]',
+      '[class*="sponsored-card"]',
+      '[class*="sponsor-card"]',
+      '[class*="ad-card"]',
+      '[class*="chat-sponsor"]',
+      '[class*="chat-ad"]',
+      '[class*="response-sponsor"]',
+      '[class*="assistant-ad"]',
+
+      // Bottom of response patterns (OpenAI said ads at bottom)
       '.message-content > [class*="sponsor"]',
       '.message-content > [class*="promo"]',
-      '[data-message-author-role="assistant"] [class*="ad-"]'
+      '[data-message-author-role="assistant"] [class*="ad-"]',
+      '[data-message-author-role="assistant"] [class*="sponsor"]',
+      '[data-message-author-role="assistant"] + [class*="sponsor"]',
+
+      // Aria labels
+      '[aria-label*="Sponsored"]',
+      '[aria-label*="sponsored"]',
+      '[aria-label="Sponsored result"]',
+      '[aria-label*="advertisement"]',
+
+      // Role-based
+      '[role="complementary"][class*="sponsor"]',
+      '[role="region"][class*="sponsor"]',
+      '[role="complementary"][class*="ad"]'
+    ],
+
+    // Text patterns to look for in ChatGPT responses
+    chatgptTextMatchers: [
+      'Sponsored',
+      'Chat with sponsor',
+      'Chat with advertiser',
+      'Sponsored result',
+      'Sponsored by',
+      'Ad',
+      'Promoted'
     ],
 
     // Exclusion patterns (elements to never block)
@@ -364,13 +404,44 @@ const adblockerGPTDetector = {
                       window.location.hostname.includes('chat.openai.com');
     if (!isChatGPT) return false;
 
-    return this.rules.chatgptSelectors.some(selector => {
+    // Check CSS selectors
+    const selectorMatch = this.rules.chatgptSelectors.some(selector => {
       try {
         return element.matches(selector);
       } catch {
         return false;
       }
     });
+    if (selectorMatch) return true;
+
+    // Check for "Sponsored" text label at bottom of responses
+    // OpenAI said ads will be labeled "Sponsored" and appear at bottom
+    if (this.rules.chatgptTextMatchers) {
+      const text = element.textContent?.trim() || '';
+      const className = element.className?.toString() || '';
+
+      // Check if element contains "Sponsored" label
+      for (const matcher of this.rules.chatgptTextMatchers) {
+        // Exact match for small elements (likely labels)
+        if (text.length < 50 && text.toLowerCase() === matcher.toLowerCase()) {
+          return true;
+        }
+        // Check if it's a sponsored card/container
+        if (text.startsWith(matcher) && element.querySelector('a, button, img')) {
+          return true;
+        }
+      }
+
+      // Check for separator line + sponsored content pattern
+      const hasSeparator = element.previousElementSibling?.tagName === 'HR' ||
+                           element.previousElementSibling?.className?.includes('separator') ||
+                           element.previousElementSibling?.className?.includes('divider');
+      if (hasSeparator && /sponsor|ad/i.test(className + ' ' + text.slice(0, 100))) {
+        return true;
+      }
+    }
+
+    return false;
   },
 
   /**

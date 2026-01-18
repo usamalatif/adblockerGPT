@@ -49,6 +49,9 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   metadataBase: new URL('https://www.adblockergpt.com'),
+  alternates: {
+    canonical: '/',
+  },
 }
 
 const organizationSchema = {
@@ -105,7 +108,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="canonical" href="https://www.adblockergpt.com" />
         <meta name="theme-color" content="#10a37f" />
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-XTYYET126Z" />
