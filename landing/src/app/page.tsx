@@ -343,10 +343,10 @@ export default function Home() {
   ]
 
   const stats = [
-    { value: '100K+', label: 'Active Users' },
+    // { value: '100K+', label: 'Active Users' },
     { value: '<50KB', label: 'Extension Size' },
     { value: '0', label: 'Data Collected' },
-    { value: '4.9★', label: 'User Rating' }
+    // { value: '4.9★', label: 'User Rating' }
   ]
 
   return (
