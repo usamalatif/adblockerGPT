@@ -192,7 +192,7 @@ function InstallButton({ size = 'default', showBothStores = false }: { size?: 's
           Buy me a coffee
         </a>
         <a
-          href="https://addons.mozilla.org/firefox/addon/adblockergpt"
+          href="https://addons.mozilla.org/en-GB/firefox/addon/adblockergpt-ad-block-chatgpt/"
           target="_blank"
           rel="noopener noreferrer"
           className={`btn-secondary ${sizeClasses[size]} flex items-center justify-center gap-3`}
@@ -216,7 +216,7 @@ function InstallButton({ size = 'default', showBothStores = false }: { size?: 's
           Available now for{' '}
           <a href="https://chrome.google.com/webstore/detail/adblockergpt" className="text-chatgpt-green hover:underline">Chrome</a>
           {' & '}
-          <a href="https://addons.mozilla.org/firefox/addon/adblockergpt" className="text-chatgpt-green hover:underline">Firefox</a>
+          <a href="https://addons.mozilla.org/en-GB/firefox/addon/adblockergpt-ad-block-chatgpt/" className="text-chatgpt-green hover:underline">Firefox</a>
         </p>
       </div>
     )
