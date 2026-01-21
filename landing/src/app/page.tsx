@@ -94,7 +94,7 @@ function getBrowserInfo(browserType: BrowserType): BrowserInfo {
       type: 'chrome',
       name: 'Chrome',
       icon: <ChromeIcon />,
-      storeUrl: 'https://chrome.google.com/webstore/detail/adblockergpt',
+      storeUrl: 'https://chromewebstore.google.com/detail/adblockergpt-ad-free-chat/ibbecljmbenelapiddflhmpgpmhgkinh',
       supported: true
     },
     firefox: {
@@ -108,14 +108,14 @@ function getBrowserInfo(browserType: BrowserType): BrowserInfo {
       type: 'edge',
       name: 'Edge',
       icon: <EdgeIcon />,
-      storeUrl: 'https://chrome.google.com/webstore/detail/adblockergpt', // Edge uses Chrome Web Store
+      storeUrl: 'https://chromewebstore.google.com/detail/adblockergpt-ad-free-chat/ibbecljmbenelapiddflhmpgpmhgkinh', // Edge uses Chrome Web Store
       supported: true
     },
     opera: {
       type: 'opera',
       name: 'Opera',
       icon: <ChromeIcon />,
-      storeUrl: 'https://chrome.google.com/webstore/detail/adblockergpt', // Opera can use Chrome extensions
+      storeUrl: 'https://chromewebstore.google.com/detail/adblockergpt-ad-free-chat/ibbecljmbenelapiddflhmpgpmhgkinh', // Opera can use Chrome extensions
       supported: true
     },
     safari: {
@@ -129,7 +129,7 @@ function getBrowserInfo(browserType: BrowserType): BrowserInfo {
       type: 'unknown',
       name: 'Browser',
       icon: <ChromeIcon />,
-      storeUrl: 'https://chrome.google.com/webstore/detail/adblockergpt',
+      storeUrl: 'https://chromewebstore.google.com/detail/adblockergpt-ad-free-chat/ibbecljmbenelapiddflhmpgpmhgkinh',
       supported: true
     }
   }
@@ -173,7 +173,7 @@ function InstallButton({ size = 'default', showBothStores = false }: { size?: 's
     return (
       <div className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
         <a
-          href="https://chrome.google.com/webstore/detail/adblockergpt"
+          href="https://chromewebstore.google.com/detail/adblockergpt-ad-free-chat/ibbecljmbenelapiddflhmpgpmhgkinh"
           target="_blank"
           rel="noopener noreferrer"
           className={`btn-primary ${sizeClasses[size]} flex items-center justify-center gap-3 glow`}
@@ -214,7 +214,7 @@ function InstallButton({ size = 'default', showBothStores = false }: { size?: 's
         </div>
         <p className="text-gray-400 text-sm mt-3">
           Available now for{' '}
-          <a href="https://chrome.google.com/webstore/detail/adblockergpt" className="text-chatgpt-green hover:underline">Chrome</a>
+          <a href="https://chromewebstore.google.com/detail/adblockergpt-ad-free-chat/ibbecljmbenelapiddflhmpgpmhgkinh" className="text-chatgpt-green hover:underline">Chrome</a>
           {' & '}
           <a href="https://addons.mozilla.org/en-GB/firefox/addon/adblockergpt-ad-block-chatgpt/" className="text-chatgpt-green hover:underline">Firefox</a>
         </p>
@@ -259,7 +259,7 @@ function NavInstallButton() {
   if (!browser.supported) {
     return (
       <a
-        href="https://chrome.google.com/webstore/detail/adblockergpt"
+        href="https://chromewebstore.google.com/detail/adblockergpt-ad-free-chat/ibbecljmbenelapiddflhmpgpmhgkinh"
         target="_blank"
         rel="noopener noreferrer"
         className="bg-chatgpt-green hover:bg-chatgpt-green-dark text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 flex items-center gap-2"
